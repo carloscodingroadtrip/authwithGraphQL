@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 const App = (props) => {
 	return (
-		<div>
+		<div className="container">
 			<Header />
 			{props.children}
 		</div>
