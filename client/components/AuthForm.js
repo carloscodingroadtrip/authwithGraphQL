@@ -32,7 +32,6 @@ export default class AuthForm extends Component {
 						<input
 							placeholder="Password"
 							type="password"
-							type="text"
 							value={this.state.password}
 							onChange={(e) => this.setState({ password: e.target.value })}
 						/>
