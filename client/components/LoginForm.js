@@ -3,7 +3,7 @@ import AuthForm from './AuthForm';
 import query from '../queries/CurrentUser';
 import mutation from '../mutations/Login';
 import { graphql } from 'react-apollo';
-
+import { hashHistory } from 'react-router';
 class LoginForm extends Component {
 	constructor (props) {
 		super(props);
@@ -12,6 +12,17 @@ class LoginForm extends Component {
 			errors: [],
 		};
 	}
+
+	componentDidUpdate (prevProps) {
+		if (!prevProps.data.currentUser && this.props.data.currentUser) {
+			// redirect to dashboard
+			console.log('go to dashboard');
+			hashHistory.push('/dashboard');
+		} else {
+			console.log('Keep user at login');
+		}
+	}
+
 	onSubmit ({ email, password }) {
 		this.props
 			.mutate({
@@ -37,4 +48,4 @@ class LoginForm extends Component {
 	}
 }
 
-export default graphql(mutation)(LoginForm);
+export default graphql(query)(graphql(mutation)(LoginForm));
