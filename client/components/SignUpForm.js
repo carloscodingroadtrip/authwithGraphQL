@@ -31,7 +31,7 @@ class SignUp extends Component {
 			console.log('go to dashboard');
 			hashHistory.push('/dashboard');
 		} else {
-			console.log('Keep user at login');
+			console.log('Keep user out of the dashboard !!!!');
 		}
 	}
 
